@@ -537,6 +537,7 @@ function M.reverse()
   
   -- Toggle sort order
   ctx.sort_ascending = not (ctx.sort_ascending or false)
+  --ctx.sort_ascending = vim.g.bookmarks_config.treeview.sort_ascending
   vim.g.bookmark_tree_view_ctx = ctx
   
   -- Refresh the view

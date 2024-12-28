@@ -92,6 +92,7 @@ local default_config = {
       show_info = "i",              -- Show node info
       reverse = "t",                -- Reverse the order of nodes in the tree view
     },
+    view_sort_ascending = true,
     -- stylua: ignore end
   },
 }
@@ -125,6 +126,10 @@ local setup = function(user_config)
   require("bookmarks.domain.repo").setup(get_db_path(cfg.db_dir))
   require("bookmarks.sign").setup(cfg.signs)
   require("bookmarks.auto-cmd").setup()
+
+  if cfg.treeview.view_sort_ascending then
+    require("bookmarks.tree.operate").toggle()
+  end
 end
 
 return {
